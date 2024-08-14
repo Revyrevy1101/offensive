@@ -1,0 +1,13 @@
+<Envelope>
+  <Header>
+    <Signature>
+      <!-- Tampered or wrapped signature -->
+    </Signature>
+  </Header>
+  <Body>
+    <SensitiveData>...</SensitiveData>
+    <Signature>
+      <!-- Valid Signature -->
+    </Signature>
+  </Body>
+</Envelope>
